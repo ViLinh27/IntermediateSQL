@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html><head>
+</head>
+<body style="color: #494c4e;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14pt; color: #000000;">This HW is divided into 2 parts.&nbsp; Please download the schema and dataset provided for each part. Create the database on Oracle server using SQLDeveloper, and then write the queries for each part. Your queries must work for arbitrary data, not just the provided data.</span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14pt; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="color: #000000;"><b><span style="font-size: 14.0pt;">Submission instructions:</span></b><span style="font-size: 14.0pt;"> For each Part submit a Part-X.sql file and a Part-X.pdf file, where X = A and B. Part-X.sql contains all your SQL queries. In Part-X.pdf copy/paste screenshots of each query and its answer from SQLDeveloper. Screenshots instructions are </span><a href="http://facsrv.cs.depaul.edu/~tmalik1/teaching/csc453/Resources/Screenshot.pdf" style="color: #000000; text-decoration: underline;"><span style="font-size: 14.0pt;">here</span></a><span style="font-size: 14.0pt;">. In total you shall be submitting 4 files. </span></span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14pt; color: #000000;">&nbsp;</span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="color: #000000;"><b><span style="font-size: 14.0pt;">Part-A. Intermediate SQL (25 points) </span></b></span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="color: #000000;"><b><span style="font-size: 14.0pt;">&nbsp;</span></b></span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14pt; color: #000000;">Dataset: Company (Provided in D2L/Homeworks)</span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14pt; color: #000000;">The schema is as follows:</span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14pt; color: #000000;">&nbsp;</span></p>
+<table class="MsoNormalTable" style="background: #F4F4F4; border-collapse: collapse; border: none;" cellspacing="0" cellpadding="0" border="1">
+<tbody>
+<tr style="height: 21.9pt;">
+<td rowspan="6" style="padding: .75pt 6.0pt .75pt 6.0pt;" valign="top">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">Company</span></p>
+</td>
+<td style="padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">Employee</span></p>
+</td>
+<td style="padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">Fname, Minit, Lname, Ssn, Bdate, Address, Sex, Salary, Super_Ssn, Dno&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+</td>
+</tr>
+<tr style="height: 14.25pt;">
+<td style="padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">Department</span></p>
+</td>
+<td style="padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">Dname, Dnumber, Mgr_ssn, Mgr_start_date</span></p>
+</td>
+</tr>
+<tr style="height: 14.25pt;">
+<td style="padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">Dept_Locations</span></p>
+</td>
+<td style="padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">Dnumber, Dlocation</span></p>
+</td>
+</tr>
+<tr style="height: 14.25pt;">
+<td style="padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">Project</span></p>
+</td>
+<td style="padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">Pname, Pnumber, Plocation, Dnum&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
+</td>
+</tr>
+<tr style="height: 14.25pt;">
+<td style="padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">Works_On</span></p>
+</td>
+<td style="padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">Essn, Pno, Hours</span></p>
+</td>
+</tr>
+<tr style="height: 14.25pt;">
+<td style="padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">Dependent</span></p>
+</td>
+<td style="padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">Essn, Dependent_name, Sex, Bdate, Relationship </span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14.0pt;">&nbsp;</span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14.0pt;">The Employee table stores information about employee. The Department table stores information about a department, and Project about the project. </span><span style="font-size: 13.5pt; font-family: Times; color: black;">Dept_Locations</span><span style="font-size: 14.0pt;"> is a supporting table. Works_On&nbsp; and Dependent are relationship tables i.e tables with foreign keys to other tables. </span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14.0pt;">&nbsp;</span><b><span style="font-size: 14.0pt;"></span></b></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14pt; color: #000000;">1. [2pt] Retrieve the names of all employees who work on at least one of the projects. (In other words, look at the list of projects given in the PROJECT table, and retrieve the names of all employees who work on at least one of them.) </span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="color: #000000;"><span style="font-size: 14.0pt;">2. [2pt] For each department, retrieve the department number, department name, and the average salary of all employees working in that department.&nbsp; Order the output by department number in ascending order. </span><b><span style="font-size: 14pt;"></span></b></span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14pt; color: #000000;">3. [3pt] List the last names of all department managers who have no dependents. </span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14.0pt;">4. <span style="color: black;">[3pt] </span>Determine the department that has the <span style="color: black;">employee with the lowest salary among all employees. For this department retrieve the names of all employees. Write one query for this question using subquery. </span></span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14.0pt; color: black;">5. [2pt] Find the total number of employees and the total number of dependents for every department (the number of dependents for a department is the sum of the number of dependents for each employee working for that department). Return the result as department name, total number of employees, and total number of dependents.</span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14.0pt; color: black;">6. [3pt] Determine if, in the company, male employees earn more than female employees. </span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14pt; color: #000000;">7. [5pt] Retrieve the names of employees whose salary is within $20,000 of the salary of the employee who is paid the most in the company (e.g., if the highest salary in the company is $80,000, retrieve the names of all employees that make at least $60,000).</span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14.0pt; color: black;"><span style="color: #000000;">8. [5pt] Find the names and addresses of all employees whose departments have no location in Houston (that is, whose departments do not have a </span>Dlocation of Houston) but who work on at least one project that is located in Houston (that is, who work on at least one project that has a Plocation of Houston). Note that the first condition is not equivalent to the employee's department having some Dlocation that is not in Houston -- the department must not have any Dlocation </span><span style="font-size: 14.0pt; color: black;">that is in Houston in order to be included in the result.</span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14.0pt; color: black;"><span style="color: red;">Submit A.sql consisting of all SQL statements, and A.pdf consisting of screenshots of queries and results. Not following screenshot instructions will result in loss of points. </span></span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14.0pt; color: black;"></span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="color: #000000;"><b><span style="font-size: 14.0pt;">Part-B. Intermediate SQL (20 points)</span></b></span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14pt; color: #000000;">Dataset: Restaurants (Provided in D2L/Homeworks)</span></p>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14pt; color: #000000;">The schema is as follows:</span></p>
+<table class="MsoNormalTable" style="background: #F4F4F4; border-top: outset; border-left: outset; border-bottom: inset; border-right: inset; border-width: 1.0pt;" cellpadding="0" border="1">
+<tbody>
+<tr style="height: 19.2pt;">
+<td rowspan="3" style="width: 75.0pt; border: solid windowtext 1.0pt; border-bottom: outset 1.0pt; padding: .75pt 6.0pt .75pt 6.0pt;" valign="top">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">Restaurants</span></p>
+</td>
+<td style="border: solid windowtext 1.0pt; padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">restaurant</span></p>
+</td>
+<td style="border: solid windowtext 1.0pt; padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">rID, name, address, cuisine</span></p>
+</td>
+</tr>
+<tr style="height: 19.2pt;">
+<td style="border: solid windowtext 1.0pt; padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">reviewer</span></p>
+</td>
+<td style="width: 185.95pt; border: solid windowtext 1.0pt; padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">vID, name</span></p>
+</td>
+</tr>
+<tr style="height: 8.6pt;">
+<td style="border: solid windowtext 1.0pt; padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">rating</span></p>
+</td>
+<td style="width: 185.95pt; border: solid windowtext 1.0pt; padding: .75pt 6.0pt .75pt 6.0pt;">
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 13.5pt; font-family: Times; color: black;">vID, rID, stars, ratingdate</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><b><span style="font-size: 14.0pt;">&nbsp;</span></b></p>
+<ol style="margin-bottom: 0in; margin-top: 0px;">
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14pt;">[5pt] For each restaurant that has at least one rating, find the highest number of stars that a restaurant received. Return the restaurant name and number of stars. Sort by restaurant name. </span></li>
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14pt;">[5pt] For each restaurant, return the name and the 'rating spread', that is, the difference between highest and lowest ratings given to that restaurant. Sort by rating spread from highest to lowest, then by restaurant name. </span></li>
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 14pt;">[5pt] Find the difference between the average rating of Indian restaurants and the average rating of Chinese restaurants. (Make sure to calculate the average rating for each restaurant, then the average of those averages for Indian and Chinese restaurants. Don't just calculate the overall average rating for Indian and Chinese restaurants.) Note: The difference can be negative.<span style="font-size: 19px;"> </span></span></li>
+<li style="margin: 0in 0in 0in 0px; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 19px;">[5pt] Are there reviewers who reviewed both Indian and Chinese restaurants? Write a query and answer Yes/No.</span></li>
+</ol>
+<p style="margin: 0in; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 16px;"><b>&nbsp;</b></span></p>
+<p style="margin: 0in 0in 12pt; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="color: red;">Submit B.sql consisting of all SQL statements, and B.pdf consisting of screenshots of queries and results. Not following screenshot instructions will result in loss of points. </span></p>
+</body></html>
